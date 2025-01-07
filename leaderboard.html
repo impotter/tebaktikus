@@ -117,36 +117,5 @@
     <button class="btn" onclick="goBack()">Back</button>
 
     <script>
-        // Fungsi untuk menampilkan leaderboard
-        function loadLeaderboard() {
-            const players = JSON.parse(localStorage.getItem("players")) || [];
-            const leaderboardElement = document.getElementById("leaderboard");
-
-            if (players.length === 0) {
-                leaderboardElement.innerHTML = "<tr><td colspan='3'>No players found.</td></tr>";
-                return;
-            }
-
-            // Sortir pemain berdasarkan skor (tertinggi ke terendah)
-            players.sort((a, b) => b.score - a.score);
-
-            // Tampilkan pemain di tabel
-            leaderboardElement.innerHTML = players.map((player, index) => `
-                <tr>
-                    <td>${index + 1}</td>
-                    <td>${player.username}</td>
-                    <td>${player.score}</td>
-                </tr>
-            `).join("");
-        }
-
-        // Fungsi untuk kembali ke halaman game
-        function goBack() {
-            window.location.href = "index.html";
-        }
-
-        // Panggil fungsi saat halaman dimuat
-        loadLeaderboard();
-    </script>
 </body>
 </html>
