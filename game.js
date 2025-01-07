@@ -51,15 +51,28 @@ function changeName() {
     }
 }
 
-// Fungsi untuk menutup modal
-function closeModal() {
-    document.getElementById("changeNameModal").style.display = "none";
-}
-
 // Fungsi untuk menampilkan modal
 function showModal() {
-    document.getElementById("changeNameModal").style.display = "block";
+    console.log("Modal displayed");
+    const modal = document.getElementById("changeNameModal");
+    if (modal) {
+        modal.style.display = "block";
+    } else {
+        console.log("Modal tidak ditemukan!");
+    }
 }
+
+// Fungsi untuk menutup modal
+function closeModal() {
+    console.log("Modal closed");
+    const modal = document.getElementById("changeNameModal");
+    if (modal) {
+        modal.style.display = "none";
+    } else {
+        console.log("Modal tidak ditemukan!");
+    }
+}
+
 
 // Periksa status login
 function checkLogin() {
