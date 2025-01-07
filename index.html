@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Tebak Tikus</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-image: url('https://img.freepik.com/premium-vector/mouses-cheese-seamless-pattern-squishmallows-background-with-mouse-kawaii-vector_419256-1711.jpg?w=900');
+            background-size: cover;
+            /* Agar gambar menutupi seluruh halaman */
+            background-position: center;
+            /* Agar gambar terpusat */
+            background-attachment: fixed;
+            /* Gambar tetap saat scroll */
+            height: 100vh;
+            /* Membuat halaman mengisi seluruh tinggi layar */
+            color: rgb(0, 0, 0);
+            /* Memberikan warna teks putih agar kontras dengan background */
+        }
+
+        .btn {
+            width: 200px;
+            height: 100px;
+            margin: 10px;
+            border: none;
+            background-image: url('images/holes.png'); /* Gambar lubang */
+            background-color: transparent;
+            background-size: cover;
+            background-position: fixed;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        #score {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        .leaderboard {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 10px;
+            font-size: 14px;
+            background-color: #1500ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .changename {
+            position: absolute;
+            top: 50px;
+            left: 10px;
+            padding: 10px;
+            font-size: 14px;
+            background-color: #1500ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .logout {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 10px;
+            font-size: 14px;
+            background-color: #FF0000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .logout:hover {
+            background-color: #cc0000;
+        }
+
+        .username {
+            position: absolute;
+            top: 10px;
+            right: 80px;
+            font-size: 14px;
+            color: rgb(0, 0, 0);
+            padding: 10px;
+            text-align: right;
+            /* Menambahkan agar teks rata kanan */
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+        }
+
+        .modal-header {
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .modal-body {
+            margin: 15px 0;
+        }
+
+        #rename-input {
+            padding: 5px;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        .modal-footer {
+            text-align: center;
+        }
+
+        .modal-footer button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .modal-footer button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="username" id="username-display">Hi, Guest</div>
+    <button class="logout" onclick="logout()">Logout</button>
+    <h1>Game Tebak Posisi Tikus</h1>
+    <button class="leaderboard" onclick="window.location.href='leaderboard.html'">Leaderboard</button>
+    <button class="changename" onclick="showModal()">Change Name</button>
+
+    <!-- Pop-up Modal for Change Name -->
+    <div id="changeNameModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Change Name</h3>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="rename-input" placeholder="New Name" />
+            </div>
+            <div class="modal-footer">
+                <button onclick="changeName()">OK!</button>
+                <button onclick="closeModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+
+    <p>Coba tebak di mana posisi tikus! Pilih angka 1 sampai 5.</p>
+    <div id="buttons">
+        <button class="btn" onclick="guess(1)"></button>
+        <button class="btn" onclick="guess(2)"></button>
+        <button class="btn" onclick="guess(3)"></button>
+        <button class="btn" onclick="guess(4)"></button>
+        <button class="btn" onclick="guess(5)"></button>
+    </div>
+    <p id="message"></p>
+    <p id="score">Score: 0</p>
+    <script src="game.js"></script>
+</body>
+
+</html>

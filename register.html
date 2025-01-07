@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-image: url('https://lelisia.com/cdn/shop/files/souris-mignonne-japonaise-motifs-repetes-style-art-anime-couleurs-pastel.webp?v=1735208130');
+            background-size: cover; /* Agar gambar menutupi seluruh halaman */
+            background-position: center; /* Agar gambar terpusat */
+            background-attachment: fixed; /* Gambar tetap saat scroll */
+            height: 100vh; /* Membuat halaman mengisi seluruh tinggi layar */
+            color: rgb(0, 0, 0); /* Memberikan warna teks putih agar kontras dengan background */
+        }
+        .input {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+            width: 200px;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Register</h1>
+    <form id="registerForm">
+        <input class="input" type="text" id="username" placeholder="Username" required><br>
+        <input class="input" type="password" id="password" placeholder="Password" required><br>
+        <button class="btn" type="submit">Register</button>
+    </form>
+    <p>Sudah punya akun? <a href="login.html">Login</a></p>
+    <script src="auth.js"></script>
+</body>
+</html>
