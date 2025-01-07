@@ -12,15 +12,14 @@
             margin-top: 50px;
             background-image: url('https://img.freepik.com/premium-vector/mouses-cheese-seamless-pattern-squishmallows-background-with-mouse-kawaii-vector_419256-1711.jpg?w=900');
             background-size: cover;
-            /* Agar gambar menutupi seluruh halaman */
             background-position: center;
-            /* Agar gambar terpusat */
             background-attachment: fixed;
-            /* Gambar tetap saat scroll */
             height: 100vh;
-            /* Membuat halaman mengisi seluruh tinggi layar */
             color: rgb(0, 0, 0);
-            /* Memberikan warna teks putih agar kontras dengan background */
+        }
+
+        h1 {
+            font-size: 32px;
         }
 
         .btn {
@@ -28,7 +27,7 @@
             height: 100px;
             margin: 10px;
             border: none;
-            background-image: url('images/holes.png'); /* Gambar lubang */
+            background-image: url('images/holes.png');
             background-color: transparent;
             background-size: cover;
             background-position: fixed;
@@ -44,43 +43,34 @@
             margin-top: 20px;
         }
 
-        .leaderboard {
+        .leaderboard,
+        .changename,
+        .logout {
             position: absolute;
-            top: 10px;
-            left: 10px;
             padding: 10px;
             font-size: 14px;
-            background-color: #1500ff;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+        }
+
+        .leaderboard {
+            top: 10px;
+            left: 10px;
+            background-color: #1500ff;
         }
 
         .changename {
-            position: absolute;
             top: 50px;
             left: 10px;
-            padding: 10px;
-            font-size: 14px;
             background-color: #1500ff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
         }
 
         .logout {
-            position: absolute;
             top: 10px;
             right: 10px;
-            padding: 10px;
-            font-size: 14px;
             background-color: #FF0000;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
         }
 
         .logout:hover {
@@ -95,7 +85,6 @@
             color: rgb(0, 0, 0);
             padding: 10px;
             text-align: right;
-            /* Menambahkan agar teks rata kanan */
         }
 
         .modal {
@@ -148,6 +137,43 @@
         .modal-footer button:hover {
             background-color: #218838;
         }
+
+        /* Responsif untuk perangkat mobile */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            .btn {
+                width: 120px;
+                height: 60px;
+                font-size: 16px;
+            }
+
+            #score {
+                font-size: 20px;
+            }
+
+            .username {
+                font-size: 12px;
+                right: 60px;
+            }
+
+            .leaderboard,
+            .changename,
+            .logout {
+                font-size: 12px;
+                padding: 8px;
+            }
+
+            #buttons {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+                margin-top: 20px;
+            }
+        }
     </style>
 </head>
 
@@ -174,14 +200,13 @@
         </div>
     </div>
 
-
     <p>Coba tebak di mana posisi tikus! Pilih angka 1 sampai 5.</p>
     <div id="buttons">
-        <button class="btn" onclick="guess(1)"></button>
-        <button class="btn" onclick="guess(2)"></button>
-        <button class="btn" onclick="guess(3)"></button>
-        <button class="btn" onclick="guess(4)"></button>
-        <button class="btn" onclick="guess(5)"></button>
+        <button class="btn" onclick="guess(1)">1</button>
+        <button class="btn" onclick="guess(2)">2</button>
+        <button class="btn" onclick="guess(3)">3</button>
+        <button class="btn" onclick="guess(4)">4</button>
+        <button class="btn" onclick="guess(5)">5</button>
     </div>
     <p id="message"></p>
     <p id="score">Score: 0</p>
