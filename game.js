@@ -1,7 +1,6 @@
 let score = 0;
 
 // Menampilkan nama pengguna saat halaman dimuat
-// Menampilkan nama pengguna saat halaman dimuat
 window.onload = function() {
     const currentUser = localStorage.getItem("currentUser");
     console.log("Current User: ", currentUser); // Cek apakah nama ada di localStorage
@@ -32,8 +31,7 @@ function changeName() {
             // Update nama pemain di data pemain
             const user = players[userIndex];
             user.username = newName;  // Ganti nama pengguna
-            // Pastikan data pemain lainnya tetap utuh (misalnya skor)
-            user.score = user.score;
+            user.score = user.score; // Pastikan data skor tetap utuh
 
             // Simpan kembali data pemain yang sudah diubah ke localStorage
             players[userIndex] = user;  // Ganti data pemain yang sudah diupdate
