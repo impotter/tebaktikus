@@ -7,200 +7,169 @@
     <title>Game Tebak Tikus</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             text-align: center;
-            margin-top: 50px;
-            background-image: url('https://img.freepik.com/premium-vector/mouses-cheese-seamless-pattern-squishmallows-background-with-mouse-kawaii-vector_419256-1711.jpg?w=900');
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff6f61, #ff8e53);
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
             height: 100vh;
-            color: rgb(0, 0, 0);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            overflow: hidden;
         }
 
         h1 {
-            font-size: 32px;
-        }
-
-        .btn {
-            width: 200px;
-            height: 100px;
-            margin: 10px;
-            border: none;
-            background-image: url('images/holes.png');
-            background-color: transparent;
-            background-size: cover;
-            background-position: fixed;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background-color: #0056b3;
-        }
-
-        /* Styling untuk skor */
-        #score {
             font-size: 36px;
-            margin-top: 20px;
             font-weight: bold;
-            color: #f7c548;
-            background-color: rgba(0, 0, 0, 0.7);
-            display: inline-block;
-            padding: 15px 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            transition: all 0.3s ease;
-        }
-
-        #score:hover {
-            background-color: rgba(0, 0, 0, 0.9);
-            transform: scale(1.1);
-        }
-
-        /* Tombol-tombol untuk leaderboard dan change name */
-        .leaderboard,
-        .changename {
-            position: absolute;
-            padding: 12px 30px;
-            font-size: 16px;
-            color: white;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            background: linear-gradient(45deg, #ff6f61, #ff8e53);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transition: background 0.3s ease, transform 0.2s ease;
-        }
-
-        .leaderboard:hover,
-        .changename:hover {
-            background: linear-gradient(45deg, #ff8e53, #ff6f61);
-            transform: scale(1.1);
-        }
-
-        .leaderboard {
-            top: 10px;
-            left: 10px;
-        }
-
-        .changename {
-            top: 50px;
-            left: 10px;
-        }
-
-        .logout {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            padding: 12px 20px;
-            font-size: 14px;
-            background-color: #FF0000;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .logout:hover {
-            background-color: #cc0000;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
         }
 
         .username {
+            font-size: 16px;
+            margin-top: 20px;
             position: absolute;
             top: 10px;
-            right: 80px;
-            font-size: 14px;
-            color: rgb(0, 0, 0);
-            padding: 10px;
-            text-align: right;
+            right: 10px;
+            color: #fff;
+            font-weight: bold;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
         }
 
+        /* Styling untuk tombol */
+        .btn,
+        .leaderboard,
+        .changename,
+        .logout {
+            font-size: 18px;
+            padding: 15px 30px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* Tombol utama */
+        .btn {
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            width: 150px;
+            height: 80px;
+            font-size: 20px;
+            margin: 15px;
+        }
+
+        .btn:hover {
+            background: rgba(0, 0, 0, 0.8);
+            transform: scale(1.1);
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Tombol lainnya */
+        .leaderboard,
+        .changename,
+        .logout {
+            background: linear-gradient(45deg, #ff6f61, #ff8e53);
+            color: #fff;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .leaderboard:hover,
+        .changename:hover,
+        .logout:hover {
+            background: linear-gradient(45deg, #ff8e53, #ff6f61);
+            transform: scale(1.05);
+        }
+
+        /* Score */
+        #score {
+            font-size: 36px;
+            font-weight: bold;
+            margin-top: 20px;
+            padding: 15px 30px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            display: inline-block;
+            transition: transform 0.2s ease;
+        }
+
+        #score:hover {
+            transform: scale(1.1);
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
-            z-index: 1;
-            left: 0;
             top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
         }
 
         .modal-content {
-            background-color: white;
-            margin: 15% auto;
+            background: #fff;
             padding: 20px;
             border-radius: 10px;
-            width: 300px;
+            text-align: center;
+            width: 80%;
+            max-width: 400px;
         }
 
         .modal-header {
-            text-align: center;
-            font-size: 18px;
-        }
-
-        .modal-body {
-            margin: 15px 0;
+            font-size: 24px;
+            margin-bottom: 15px;
         }
 
         #rename-input {
-            padding: 5px;
-            font-size: 16px;
-            width: 100%;
-        }
-
-        .modal-footer {
-            text-align: center;
+            padding: 10px;
+            width: 80%;
+            font-size: 18px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
         }
 
         .modal-footer button {
             padding: 10px 20px;
-            background-color: #28a745;
+            background: #28a745;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            margin: 10px;
         }
 
         .modal-footer button:hover {
-            background-color: #218838;
+            background: #218838;
         }
 
         /* Responsif untuk perangkat mobile */
         @media (max-width: 768px) {
             h1 {
-                font-size: 24px;
+                font-size: 28px;
             }
 
             .btn {
                 width: 120px;
                 height: 60px;
-                font-size: 16px;
             }
 
             #score {
-                font-size: 20px;
+                font-size: 24px;
                 padding: 10px 20px;
-            }
-
-            .username {
-                font-size: 12px;
-                right: 60px;
-            }
-
-            .leaderboard,
-            .changename,
-            .logout {
-                font-size: 12px;
-                padding: 8px;
-            }
-
-            #buttons {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 10px;
-                margin-top: 20px;
             }
         }
     </style>
@@ -213,15 +182,13 @@
     <button class="leaderboard" onclick="window.location.href='leaderboard.html'">Leaderboard</button>
     <button class="changename" onclick="showModal()">Change Name</button>
 
-    <!-- Pop-up Modal for Change Name -->
+    <!-- Pop-up Modal untuk Ganti Nama -->
     <div id="changeNameModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
                 <h3>Change Name</h3>
             </div>
-            <div class="modal-body">
-                <input type="text" id="rename-input" placeholder="New Name" />
-            </div>
+            <input type="text" id="rename-input" placeholder="New Name" />
             <div class="modal-footer">
                 <button onclick="changeName()">OK!</button>
                 <button onclick="closeModal()">Cancel</button>
@@ -239,6 +206,7 @@
     </div>
     <p id="message"></p>
     <p id="score">Score: 0</p>
+
     <script src="game.js"></script>
 </body>
 
