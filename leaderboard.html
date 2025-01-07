@@ -39,27 +39,44 @@
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
         }
 
-        th, td {
+        th,
+        td {
             border: 1px solid #ddd;
             padding: 15px;
-            text-align: left;
+            text-align: center;  /* Make sure text in both header and body is centered */
             font-size: 20px;
         }
 
         th {
-            background-color: #ff6f61;
+            background-color: #007BFF; /* Keep header color as #007BFF */
             color: white;
             border-top-left-radius: 15px;
             border-top-right-radius: 15px;
             font-weight: bold;
         }
 
+        /* Remove hover effect from header */
+        th:hover {
+            background-color: #007BFF;
+            cursor: default;
+        }
+
         tr:nth-child(even) {
             background-color: #f2f2f2;
         }
 
+        tr:nth-child(odd) {
+            background-color: #ff8e53;
+        }
+
+        tr:nth-child(odd):hover,
+        tr:nth-child(even):hover {
+            background-color: #ff6f61;
+        }
+
         tr:hover {
-            background-color: #ddd;
+            transform: scale(1.02);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
         .btn {
@@ -88,7 +105,8 @@
                 width: 90%;
             }
 
-            th, td {
+            th,
+            td {
                 font-size: 18px;
                 padding: 12px;
             }
