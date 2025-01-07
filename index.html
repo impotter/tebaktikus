@@ -43,8 +43,8 @@
             font-size: 36px;
             margin-top: 20px;
             font-weight: bold;
-            color: #f7c548; /* Warna kuning cerah */
-            background-color: rgba(0, 0, 0, 0.7); /* Latar belakang semi-transparan */
+            color: #f7c548;
+            background-color: rgba(0, 0, 0, 0.7);
             display: inline-block;
             padding: 15px 30px;
             border-radius: 10px;
@@ -57,35 +57,48 @@
             transform: scale(1.1);
         }
 
-        /* Styling untuk leaderboard, changename, dan logout */
+        /* Tombol-tombol untuk leaderboard dan change name */
         .leaderboard,
-        .changename,
-        .logout {
+        .changename {
             position: absolute;
-            padding: 10px;
-            font-size: 14px;
+            padding: 12px 30px;
+            font-size: 16px;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 30px;
             cursor: pointer;
+            background: linear-gradient(45deg, #ff6f61, #ff8e53);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .leaderboard:hover,
+        .changename:hover {
+            background: linear-gradient(45deg, #ff8e53, #ff6f61);
+            transform: scale(1.1);
         }
 
         .leaderboard {
             top: 10px;
             left: 10px;
-            background-color: #1500ff;
         }
 
         .changename {
             top: 50px;
             left: 10px;
-            background-color: #1500ff;
         }
 
         .logout {
+            position: absolute;
             top: 10px;
             right: 10px;
+            padding: 12px 20px;
+            font-size: 14px;
             background-color: #FF0000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
 
         .logout:hover {
