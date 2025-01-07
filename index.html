@@ -65,6 +65,10 @@
             height: 80px;
             font-size: 20px;
             margin: 15px;
+            background-image: url('images/holes.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         .btn:hover {
@@ -117,43 +121,75 @@
             background-color: rgba(0, 0, 0, 0.7);
             justify-content: center;
             align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex;
+            opacity: 1;
         }
 
         .modal-content {
             background: #fff;
-            padding: 20px;
-            border-radius: 10px;
+            padding: 30px;
+            border-radius: 15px;
             text-align: center;
             width: 80%;
             max-width: 400px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            transform: scale(0.8);
+            animation: fadeIn 0.5s forwards;
         }
 
         .modal-header {
             font-size: 24px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            color: #ff6f61;
         }
 
         #rename-input {
-            padding: 10px;
+            padding: 15px;
             width: 80%;
             font-size: 18px;
             margin-bottom: 20px;
             border-radius: 10px;
-            border: 1px solid #ccc;
+            border: 1px solid #ff6f61;
+            transition: border-color 0.3s ease;
+        }
+
+        #rename-input:focus {
+            border-color: #ff8e53;
+            outline: none;
         }
 
         .modal-footer button {
             padding: 10px 20px;
-            background: #28a745;
+            background: #ff6f61;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 10px;
             cursor: pointer;
-            margin: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
         }
 
         .modal-footer button:hover {
-            background: #218838;
+            background: #ff8e53;
+            transform: scale(1.05);
+        }
+
+        /* Animasi fade-in untuk modal */
+        @keyframes fadeIn {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
 
         /* Responsif untuk perangkat mobile */
