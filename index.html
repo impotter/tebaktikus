@@ -38,11 +38,26 @@
             background-color: #0056b3;
         }
 
+        /* Styling untuk skor */
         #score {
-            font-size: 24px;
+            font-size: 36px;
             margin-top: 20px;
+            font-weight: bold;
+            color: #f7c548; /* Warna kuning cerah */
+            background-color: rgba(0, 0, 0, 0.7); /* Latar belakang semi-transparan */
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
         }
 
+        #score:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+            transform: scale(1.1);
+        }
+
+        /* Styling untuk leaderboard, changename, dan logout */
         .leaderboard,
         .changename,
         .logout {
@@ -152,6 +167,7 @@
 
             #score {
                 font-size: 20px;
+                padding: 10px 20px;
             }
 
             .username {
